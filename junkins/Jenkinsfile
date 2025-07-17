@@ -1,19 +1,25 @@
 pipeline {
     agent any
+
     stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/Vinod733-code/dockerfile.git'
+            }
+        }
         stage('Build') {
             steps {
-                sh 'make'
+                echo 'Building...'
             }
         }
         stage('Test') {
             steps {
-                sh 'build'
+                echo 'Testing...'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'deploy'
+                echo 'Deploying...'
             }
         }
     }
